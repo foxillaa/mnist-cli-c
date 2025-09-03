@@ -1,0 +1,16 @@
+
+
+```makefile
+CC = gcc
+CFLAGS = -Wall -Wextra -O2 -std=c11
+SRC = src/z2.c src/functions.c src/data.c
+OBJ = $(SRC:.c=.o)
+TARGET = mnist_cli
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ) -lm
+
+clean:
+	rm -f $(OBJ) $(TARGET)
